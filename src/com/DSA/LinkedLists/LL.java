@@ -122,6 +122,14 @@ public class LL {
 	public int getTail() {
 		return tail.val;
 	}
+	public int getMid() {
+		int m=size/2;
+		Node temp=head;
+		for (int i=1;i<m;i++) {
+			temp=temp.next;
+		}
+		return temp.val;
+	}
 	
 
 }

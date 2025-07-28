@@ -14,6 +14,7 @@ public class mainlist {
 		list.ReverseList();
 		list.Display();
 		System.out.println(list.getTail());
+		System.out.println(list.getMid());
 	}
   
 
