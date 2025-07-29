@@ -90,6 +90,40 @@ public class LL {
 		}
 		head=prev;
 	}
+	public void ReverseListWithNode(Node req) {
+	    if (req == null || req.next == null) {
+	        return;
+	    }
+
+	    Node prev = null;
+	    Node pres = req;
+	    Node nex = pres.next;
+
+	    while (pres != null) {
+	        pres.next = prev;
+	        prev = pres;
+	        pres = nex;
+	        if (nex != null) {
+	            nex = nex.next;
+	        }
+	    }
+
+	    // Now, prev is the new head of the reversed segment
+	    // If req was the head of the full list, update head pointer
+	    if (head == req) {
+	        head = prev;
+	    } else {
+	        // Find the node before 'req' to reconnect
+	        Node temp = head;
+	        while (temp != null && temp.next != req) {
+	            temp = temp.next;
+	        }
+	        if (temp != null) {
+	            temp.next = prev;
+	        }
+	    }
+	}
+
 	public void deleteLast() {
 		Node temp=head;
 		while(temp.next.next!= null) {
@@ -119,17 +153,24 @@ public class LL {
 			this.next=next;
 		}
 	}
+	public void insertUsingRecursion() {
+		
+	}
+	
+	
 	public int getTail() {
 		return tail.val;
 	}
-	public int getMid() {
+	public Node getMid() {
 		int m=size/2;
 		Node temp=head;
-		for (int i=1;i<m;i++) {
+		for (int i=1;i<=m;i++) {
 			temp=temp.next;
 		}
-		return temp.val;
+		return temp;
 	}
+	
+	
 	
 
 }
